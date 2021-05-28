@@ -1,0 +1,9 @@
+sudo: required
+service:
+  - docker
+
+before_install:
+  - docker build -t bartekwas/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run bartekwas/docker-react npm run test -- --coverage
